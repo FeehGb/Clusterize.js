@@ -128,9 +128,10 @@
     self.getRowsAmount = function() {
       return rows.length;
     }
-    self.getScrollProgress = function() {
-      return this.options.scroll_top / (rows.length * this.options.item_height) * 100 || 0;
-    }
+    self.getScrollProgress = function () {
+       //return this.options.scroll_top / (rows.length * this.options.item_height) * 100 || 0;
+       return this.options.scroll_top / (self.scroll_elem.scrollHeight - self.scroll_elem.clientHeight) * 100 || 0;
+     }
 
     var add = function(where, _new_rows) {
       var new_rows = isArray(_new_rows)
